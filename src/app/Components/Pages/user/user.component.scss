@@ -1,0 +1,23 @@
+@import '../../../../styles.scss';
+.tableStyle{
+    overflow: auto;
+    overflow-x: hidden;
+    height: 400px;
+
+table {
+   width: 100%;  
+   table-layout: fixed;
+   .fieldwidth{
+    overflow: hidden;
+    width: 10% !important;
+    text-overflow: ellipsis !important;
+    white-space: nowrap; 
+   }
+   .idwidth{
+    overflow: hidden;
+    width: 8% !important;
+    text-overflow: ellipsis !important;
+    white-space: nowrap; 
+   }
+}
+}

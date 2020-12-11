@@ -1,0 +1,56 @@
+<div class="col-sm-12 p-0">
+  <mat-card-header class="d-flex CardHeader cardbkclr p-1 mb-2 mt-2 setscroll">
+    <mat-card-title class="mb-0">Post Information</mat-card-title>
+  </mat-card-header>
+</div>
+<div class="col-sm-12">
+  <div class="row justify-content-center">
+    <div class="col-sm-8 p-0 mt-2 ml-2">
+      <div class="tableStyle">
+        <table mat-table [dataSource]="dataSource" class="mat-elevation-z0 ">
+
+          <ng-container matColumnDef="id">
+            <th class="idwidth" mat-header-cell *matHeaderCellDef>Id </th>
+            <td class="idwidth" mat-cell *matCellDef="let element"> {{element.id}}
+            </td>
+          </ng-container>
+          <ng-container matColumnDef="userid">
+            <th class="idwidth" mat-header-cell *matHeaderCellDef> User Id</th>
+            <td class="idwidth" mat-cell *matCellDef="let element"> {{element.userId}}
+            </td>
+          </ng-container>
+
+          <ng-container matColumnDef="title">
+            <th class="titlewidth" mat-header-cell *matHeaderCellDef>Title </th>username
+            <td class="titlewidth" mat-cell *matCellDef="let element" matTooltip={{element.title}}> {{element.title}}
+            </td>
+          </ng-container>
+
+          <ng-container matColumnDef="done">
+            <th class="idwidth" mat-header-cell *matHeaderCellDef> Select </th>
+            <td class="idwidth select" mat-cell *matCellDef="let element" (click)="onViewData(element.id)">
+              <mat-icon>done_all</mat-icon>
+            </td>
+          </ng-container>
+          <tr mat-header-row *matHeaderRowDef="displayedColumns; sticky: true" class="TableHeaderStyle "></tr>
+          <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+        </table>
+      </div>
+      <div class="row justify-content-end p-0">
+        <mat-paginator [length]="100" [pageSize]="10" [pageSizeOptions]="[ 8, 25, 100]" class="ml-5">
+        </mat-paginator>
+      </div>
+    </div>
+  </div>
+  <div class="col-sm-12 ">
+    <div class="row justify-content-center" *ngFor="let postData of mPostDataDisplay">
+      <div class="col-sm-8">
+        <div><span class="displayBody">Post Body</span></div>
+
+        <span style="font-weight: bold;">{{postData?.body}}</span>
+      </div>
+
+    </div>
+  </div>
+
+</div>
